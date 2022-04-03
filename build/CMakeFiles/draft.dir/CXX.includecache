@@ -7,6 +7,14 @@
 #IncludeRegexTransform: 
 
 /home/dovietchinh/code/letcode/source/draft.cpp
+vector
+-
 iostream
+-
+fstream
+-
+sstream
+-
+string
 -
 

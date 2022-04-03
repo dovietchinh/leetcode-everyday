@@ -55,6 +55,8 @@ CMAKE_BINARY_DIR = /home/dovietchinh/code/letcode/build
 # The main recursive "all" target.
 all: CMakeFiles/problem2.dir/all
 all: CMakeFiles/problem1.dir/all
+all: CMakeFiles/hackerrank1.dir/all
+all: CMakeFiles/draft.dir/all
 
 .PHONY : all
 
@@ -66,6 +68,8 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/problem2.dir/clean
 clean: CMakeFiles/problem1.dir/clean
+clean: CMakeFiles/hackerrank1.dir/clean
+clean: CMakeFiles/draft.dir/clean
 
 .PHONY : clean
 
@@ -76,7 +80,7 @@ clean: CMakeFiles/problem1.dir/clean
 CMakeFiles/problem2.dir/all:
 	$(MAKE) -f CMakeFiles/problem2.dir/build.make CMakeFiles/problem2.dir/depend
 	$(MAKE) -f CMakeFiles/problem2.dir/build.make CMakeFiles/problem2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dovietchinh/code/letcode/build/CMakeFiles --progress-num=3,4 "Built target problem2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dovietchinh/code/letcode/build/CMakeFiles --progress-num=7,8 "Built target problem2"
 .PHONY : CMakeFiles/problem2.dir/all
 
 # Build rule for subdir invocation for target.
@@ -103,7 +107,7 @@ CMakeFiles/problem2.dir/clean:
 CMakeFiles/problem1.dir/all:
 	$(MAKE) -f CMakeFiles/problem1.dir/build.make CMakeFiles/problem1.dir/depend
 	$(MAKE) -f CMakeFiles/problem1.dir/build.make CMakeFiles/problem1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dovietchinh/code/letcode/build/CMakeFiles --progress-num=1,2 "Built target problem1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dovietchinh/code/letcode/build/CMakeFiles --progress-num=5,6 "Built target problem1"
 .PHONY : CMakeFiles/problem1.dir/all
 
 # Build rule for subdir invocation for target.
@@ -122,6 +126,60 @@ problem1: CMakeFiles/problem1.dir/rule
 CMakeFiles/problem1.dir/clean:
 	$(MAKE) -f CMakeFiles/problem1.dir/build.make CMakeFiles/problem1.dir/clean
 .PHONY : CMakeFiles/problem1.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/hackerrank1.dir
+
+# All Build rule for target.
+CMakeFiles/hackerrank1.dir/all:
+	$(MAKE) -f CMakeFiles/hackerrank1.dir/build.make CMakeFiles/hackerrank1.dir/depend
+	$(MAKE) -f CMakeFiles/hackerrank1.dir/build.make CMakeFiles/hackerrank1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dovietchinh/code/letcode/build/CMakeFiles --progress-num=3,4 "Built target hackerrank1"
+.PHONY : CMakeFiles/hackerrank1.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/hackerrank1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dovietchinh/code/letcode/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/hackerrank1.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dovietchinh/code/letcode/build/CMakeFiles 0
+.PHONY : CMakeFiles/hackerrank1.dir/rule
+
+# Convenience name for target.
+hackerrank1: CMakeFiles/hackerrank1.dir/rule
+
+.PHONY : hackerrank1
+
+# clean rule for target.
+CMakeFiles/hackerrank1.dir/clean:
+	$(MAKE) -f CMakeFiles/hackerrank1.dir/build.make CMakeFiles/hackerrank1.dir/clean
+.PHONY : CMakeFiles/hackerrank1.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/draft.dir
+
+# All Build rule for target.
+CMakeFiles/draft.dir/all:
+	$(MAKE) -f CMakeFiles/draft.dir/build.make CMakeFiles/draft.dir/depend
+	$(MAKE) -f CMakeFiles/draft.dir/build.make CMakeFiles/draft.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dovietchinh/code/letcode/build/CMakeFiles --progress-num=1,2 "Built target draft"
+.PHONY : CMakeFiles/draft.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/draft.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dovietchinh/code/letcode/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/draft.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dovietchinh/code/letcode/build/CMakeFiles 0
+.PHONY : CMakeFiles/draft.dir/rule
+
+# Convenience name for target.
+draft: CMakeFiles/draft.dir/rule
+
+.PHONY : draft
+
+# clean rule for target.
+CMakeFiles/draft.dir/clean:
+	$(MAKE) -f CMakeFiles/draft.dir/build.make CMakeFiles/draft.dir/clean
+.PHONY : CMakeFiles/draft.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,10 +1,10 @@
-# Letcode everyday
+# coding everyday
 
 coding everyday is a good habit for programmer.
 
 I consider letcode is my relax-place instead of playing video or wasting alot of time with social media.
 
-## Group of problems.
+## Letcode
 
 
 ### Data structures.
@@ -16,3 +16,6 @@ problems 1: Two sum
     - Diffuculty : easy.
 
     - 
+## Hackerrank
+
+hackerrank
