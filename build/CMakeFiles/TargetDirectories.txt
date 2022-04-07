@@ -1,4 +1,6 @@
 /home/dovietchinh/code/letcode/build/CMakeFiles/edit_cache.dir
+/home/dovietchinh/code/letcode/build/CMakeFiles/problem4.dir
+/home/dovietchinh/code/letcode/build/CMakeFiles/problem3.dir
 /home/dovietchinh/code/letcode/build/CMakeFiles/problem2.dir
 /home/dovietchinh/code/letcode/build/CMakeFiles/problem1.dir
 /home/dovietchinh/code/letcode/build/CMakeFiles/hackerrank1.dir

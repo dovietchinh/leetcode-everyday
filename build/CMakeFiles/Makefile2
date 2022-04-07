@@ -53,6 +53,8 @@ CMAKE_BINARY_DIR = /home/dovietchinh/code/letcode/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/problem4.dir/all
+all: CMakeFiles/problem3.dir/all
 all: CMakeFiles/problem2.dir/all
 all: CMakeFiles/problem1.dir/all
 all: CMakeFiles/hackerrank1.dir/all
@@ -66,12 +68,68 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/problem4.dir/clean
+clean: CMakeFiles/problem3.dir/clean
 clean: CMakeFiles/problem2.dir/clean
 clean: CMakeFiles/problem1.dir/clean
 clean: CMakeFiles/hackerrank1.dir/clean
 clean: CMakeFiles/draft.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/problem4.dir
+
+# All Build rule for target.
+CMakeFiles/problem4.dir/all:
+	$(MAKE) -f CMakeFiles/problem4.dir/build.make CMakeFiles/problem4.dir/depend
+	$(MAKE) -f CMakeFiles/problem4.dir/build.make CMakeFiles/problem4.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dovietchinh/code/letcode/build/CMakeFiles --progress-num=11,12 "Built target problem4"
+.PHONY : CMakeFiles/problem4.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/problem4.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dovietchinh/code/letcode/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/problem4.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dovietchinh/code/letcode/build/CMakeFiles 0
+.PHONY : CMakeFiles/problem4.dir/rule
+
+# Convenience name for target.
+problem4: CMakeFiles/problem4.dir/rule
+
+.PHONY : problem4
+
+# clean rule for target.
+CMakeFiles/problem4.dir/clean:
+	$(MAKE) -f CMakeFiles/problem4.dir/build.make CMakeFiles/problem4.dir/clean
+.PHONY : CMakeFiles/problem4.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/problem3.dir
+
+# All Build rule for target.
+CMakeFiles/problem3.dir/all:
+	$(MAKE) -f CMakeFiles/problem3.dir/build.make CMakeFiles/problem3.dir/depend
+	$(MAKE) -f CMakeFiles/problem3.dir/build.make CMakeFiles/problem3.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dovietchinh/code/letcode/build/CMakeFiles --progress-num=9,10 "Built target problem3"
+.PHONY : CMakeFiles/problem3.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/problem3.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dovietchinh/code/letcode/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/problem3.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dovietchinh/code/letcode/build/CMakeFiles 0
+.PHONY : CMakeFiles/problem3.dir/rule
+
+# Convenience name for target.
+problem3: CMakeFiles/problem3.dir/rule
+
+.PHONY : problem3
+
+# clean rule for target.
+CMakeFiles/problem3.dir/clean:
+	$(MAKE) -f CMakeFiles/problem3.dir/build.make CMakeFiles/problem3.dir/clean
+.PHONY : CMakeFiles/problem3.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/problem2.dir

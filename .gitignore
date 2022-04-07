@@ -1,4 +1,6 @@
 source/draft.cpp
+build/
 build/bin
 build/Makefile
 build/CMakeFiles
+.vscode

@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.16.1)
 project(letcode)
+set(CMAKE_BUILD_TYPE Debug)
 set(THISDIR ${CMAKE_SOURCE_DIR})
 file(GLOB SOURCE ${THISDIR}/../source/*.cpp)
 include_directories(${THISDIR}/../include)
