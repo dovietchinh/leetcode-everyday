@@ -18,22 +18,17 @@ using namespace std;
 class Solution {
 public:
     bool isPalindrome(int x) {
-        int k =0;
-        while(true){
-            k++;
-            if(x/pow(10,k)<1){
-                break;
-            }
-            
+        if(x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
         }
-        int total =0;
-        for(int i=1;i<=k;i++){
-            int temp = pow(10,i);
-            temp = x % temp;
-            temp =  temp / pow(10,i-1);
-            total += temp * pow(10,k-i);
+
+        int revertedNumber = 0;
+        while(x > revertedNumber) {
+            revertedNumber = revertedNumber * 10 + x % 10;
+            x /= 10;
         }
-        return (total - x) ==0;
+
+        return x == revertedNumber || x == revertedNumber/10;
     }
 };
 
