@@ -45,3 +45,11 @@ public:
         return sign * result;
     }
 };
+
+int main(int argc,char ** argv){
+    string s= "42";
+    Solution solution;
+    int result = solution.myAtoi(s);
+    cout << result << endl;
+    return EXIT_SUCCESS;
+}
