@@ -24,7 +24,7 @@ public:
         ListNode* x, *z;
         vector<pair<int, ListNode*> > A;
         for(ListNode* p=list1;p!=NULL;p=p->next){
-            A.push_back(p->val,p->next);
+            A.push_back(make_pair(p->val,p->next));
         }
         sort(A.begin(),A.end(),cmp);
         z = A[0].second;
