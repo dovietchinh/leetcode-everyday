@@ -3,22 +3,47 @@ class Solution(object):
         size = len(s)
         if(size<=1):
             return s
-        max_value = 0
-        r = ""
+        max_value = 1
+        r = s[0]
+        for index,c in enumerate(s):
+            max_step_to_expand = min(index,size -1 -index)+1
+            left = True
+            right = True 
+            both = True 
+            for i in range(1,max_step_to_expand+1):
+                if i<=index:
+                    if s[index-i] == s[index+i-1] and left:
+                        if max_value < 2*i:
+                            max_value = 2*i
+                            r = s[index-i:index+i]
+                    else:
+                        left = False
+                else:
+                    left = False
+                if i<= size-index-1:
+                    if s[index-i+1] == s[index+i] and right:
+                        if max_value < 2*i:
+                            max_value = 2*i
+                            r = s[index-i+1:index+i+1]
+                    else:
+                        right = False
+                else:
+                    right = False
+                if i<=min(index,size-1-index):
+                    if s[index-i] == s[index+i] and both:
+                        if max_value < 2*i+1:
+                            max_value = 2*i+1
+                            r = s[index-i:index+i+1]
+                    else:
+                        both = False
+                else:
+                    both = False
+        return r
+
+
+
         
-            
-    def check_if_palindrome(self,s):
-        size = len(s)
-        for index in range(size>>2):
-
-            if s[index] != s[size-1-index]:
-                return False
-        return True
-
 
 
 if __name__ == '__main__':
-    # for i in ["bb"]: 
-    #     r = Solution().longestPalindrome(i)
-    #     print(r)
-    print(Solution().check_if_palindrome("asdsdsa"))
+    print(Solution().longestPalindrome("aacaaaaaa"))
