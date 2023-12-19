@@ -2,8 +2,7 @@ from bisect import bisect_left
 import itertools
 import collections
 class Solution:
-class Solution:
-    def threeSumClosest(self, nums: List[int], target: int) -> int:
+    def threeSumClosest(self, nums , target: int) -> int:
         nums.sort()
         n = len(nums)
         diff = float('inf')
