@@ -9,9 +9,9 @@ class Solution:
         new_arr.append(-1)
         max_value = arr[-1]
         for index in range(len(arr)-1,0,-1):
+            new_arr.insert(0,max_value)
             if max_value < arr[index-1]:
                 max_value = arr[index-1]
-            new_arr.insert(0,max_value)
         return new_arr
 
 if __name__ == '__main__':
