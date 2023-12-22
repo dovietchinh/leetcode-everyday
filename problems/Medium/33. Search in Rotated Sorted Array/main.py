@@ -9,7 +9,7 @@ class Solution(object):
             return 0
         if len(nums)==0:
             return -1
-        while left<right:
+        while left<=right:
             mid = (left + right) //2
             n_left = nums[left]
             n_right = nums[right]
