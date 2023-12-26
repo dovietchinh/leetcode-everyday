@@ -20,6 +20,7 @@ print(list(itertools.product([1,2], repeat=3)))
 
 def permutations(head, tail=[]):
     # test = []
+    print('head,tail: ',head,tail)
     if not hasattr(permutations,'results'):
         permutations.results = []
     # print('head: ',head)
