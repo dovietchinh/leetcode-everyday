@@ -24,12 +24,9 @@ class Solution:
                 if nums[j+1+k]==seach_value:
                     results.add((nums[i],nums[j],nums[j+1+k]))
                 old_j = nums[j]
-                
-            
         return results
         
 if __name__ == '__main__':
     a = [1,2,3,5,7,8,9,10]
-    # a = [0,1,2,3,4,5,6,7] 
     r = Solution().threeSum([3,0,-2,-1,1,2])
     print(r)
