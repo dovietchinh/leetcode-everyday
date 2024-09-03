@@ -117,3 +117,24 @@ The Ubiquitous Binary Search |
 - Tree Sort
 - Odd-Even Sort / Brick Sort
 - 3-way Merge Sort
+
+
+## Leetcode Patterns
+
+- Prefix sum patterns
+- Two Pointer Patterns
+- Sliding Window (643,3,76)
+- Fast and Slow Pointer ( runner pointer) (141, 202, 287,24)
+- Linked List in-place reversal patterns (206,92,24)
+- Monotonic stack (496,739,84)
+- Top K element , K largest, k smallest, k most frequent - quickselect (215,347, 373)
+- Overlaping Intervals , merging intervals, intervals intersection, insert interval, find minimum meeting room (56,57,435)
+- Modified binary search  pattern (33,153,240)
+- Binary tree traversal (257,230,124,107)
+- Depth first search (DFS) (133,113,210)
+- Breath First Search
+- Matrix traversal (graph problems) (733, 200, 130)
+- Backtracking
+- Dynamic Programing (DP):
+    - Fibonacci problems
+    - Knapsack
