@@ -1,5 +1,6 @@
 
-def make_permutations(n,tail=[]):
+def make_permutations(n,tail=[]): 
+    #this is backtracking
     res = []
     
     if not hasattr(make_permutations,'res'):

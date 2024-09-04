@@ -136,5 +136,7 @@ The Ubiquitous Binary Search |
 - Matrix traversal (graph problems) (733, 200, 130)
 - Backtracking
 - Dynamic Programing (DP):
+    - Top-down (memory) ( recursive from top to down)
+    - Bottom-up (tabulation) ( calculate every the bottom problems to build-up to the top problems)
     - Fibonacci problems
     - Knapsack

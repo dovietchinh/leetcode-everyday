@@ -23,7 +23,6 @@ for node, edges in graph.items():
 
 # Define positions of nodes
 pos = nx.spring_layout(G)
-
 # Draw the graph
 nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=2000, font_size=16, font_weight='bold', arrows=True)
 
