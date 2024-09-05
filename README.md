@@ -131,8 +131,8 @@ The Ubiquitous Binary Search |
 - Overlaping Intervals , merging intervals, intervals intersection, insert interval, find minimum meeting room (56,57,435)
 - Modified binary search  pattern (33,153,240)
 - Binary tree traversal (257,230,124,107)
-- Depth first search (DFS) (133,113,210)
-- Breath First Search
+- Depth first search (DFS) (133,113,210) O(V+E)
+- Breath First Search : O(V+E)
 - Matrix traversal (graph problems) (733, 200, 130)
 - Backtracking
 - Dynamic Programing (DP):
@@ -140,3 +140,5 @@ The Ubiquitous Binary Search |
     - Bottom-up (tabulation) ( calculate every the bottom problems to build-up to the top problems)
     - Fibonacci problems
     - Knapsack
+
+- Kruskal Algorithm
