@@ -14,23 +14,26 @@ graph = {
 }
 
 # Create a directed graph
-G = nx.DiGraph()
+def visualize(graph):
+    import matplotlib.pyplot as plt
+    import networkx as nx
+    G = nx.DiGraph()
+    # Add edges to the graph
+    for node, edges in graph.items():
+        for neighbor, weight in edges.items():
+            G.add_edge(node, neighbor, weight=weight)
 
-# Add edges to the graph
-for node, edges in graph.items():
-    for neighbor, weight in edges.items():
-        G.add_edge(node, neighbor, weight=weight)
+    # Define positions of nodes
+    pos = nx.spring_layout(G)
+    # Draw the graph
+    nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=2000, font_size=16, font_weight='bold', arrows=True)
 
-# Define positions of nodes
-pos = nx.spring_layout(G)
-# Draw the graph
-nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=2000, font_size=16, font_weight='bold', arrows=True)
+    # Draw edge labels
+    edge_labels = nx.get_edge_attributes(G, 'weight')
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color='red', font_size=12)
 
-# Draw edge labels
-edge_labels = nx.get_edge_attributes(G, 'weight')
-nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color='red', font_size=12)
+    # Show the plot
+    plt.title("Graph Visualization with Dijkstra's Algorithm")
+    plt.axis('off')
+    plt.show()
 
-# Show the plot
-plt.title("Graph Visualization with Dijkstra's Algorithm")
-plt.axis('off')
-plt.show()
