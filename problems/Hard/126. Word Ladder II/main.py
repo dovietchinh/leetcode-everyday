@@ -12,16 +12,20 @@ class Solution:
             return []
         ## make a graph 
         edges = []
-        wordList.insert(0,beginWord)
+        if not beginWord in wordList:
+            wordList.insert(0,beginWord)
         graph = {}
+        for i in range(len(wordList)):
+            graph[wordList[i]] = []
         for i in range(len(wordList)-1):
+            # graph[wordList[i]] = []
             for j in range(1,len(wordList)):
                 if countDiff(wordList[i],wordList[j]) == 1:
-                    # graph[wordList[i]] = graph.get(wordList[i],[]) + [wordList[j]]
-                    # graph[wordList[j]] = graph.get(wordList[j],[]) + [wordList[i]]
-                    graph[i] = graph.get(i,[]) + [j]
-                    graph[j] = graph.get(j,[]) + [i]
-        
+                    graph[wordList[i]] = graph.get(wordList[i],[]) + [wordList[j]]
+                    graph[wordList[j]] = graph.get(wordList[j],[]) + [wordList[i]]
+                    # graph[i] = graph.get(i,[]) + [j]
+                    # graph[j] = graph.get(j,[]) + [i]
+        print(graph)
 
         res = []
         def dijkstra_algorithms(graph,start):
@@ -37,6 +41,7 @@ class Solution:
             visited = set()
             while queue:
                 node = queue.pop(0)
+                # print('node: ',node)
                 if node in visited:
                     continue
                 visited.add(node)
@@ -50,14 +55,39 @@ class Solution:
                         table[neighbor]['distance'] = table[node]['distance'] + 1
                         table[neighbor]['previous'] = [node]
                     elif table[neighbor]['distance'] == table[node]['distance'] + 1:
-                        table[neighbor]['previous'].append(node)
+                        if node not in table[neighbor]['previous']:
+                            table[neighbor]['previous'].append(node)
                     else:
                         continue 
                     queue.append(neighbor)
             return table 
-        table = dijkstra_algorithms(graph,0)
-        print(table)
-        return graph
+        table = dijkstra_algorithms(graph,beginWord)
+        # print(table)
+        res = []
+        def get_sortest_path_from_table(table,point,tail=[]):
+            nonlocal res 
+            distance = table[point]['distance']
+            previous = table[point]['previous']
+            if distance == float('inf'):
+                return
+            if distance == 0:
+                res.append(tail[::-1])
+                return    
+            if distance != 0:
+                # print('table: ',table)
+                # print('point: ',point)
+                # print('table[point]: ',table[point])
+                distance = table[point]['distance']
+                previous = table[point]['previous']
+                for pre in previous:
+                    get_sortest_path_from_table(table,pre,[*tail,pre])
+                # point = table[point]['previous']
+            # res.append([wordList[i] for i in tail[::-1]])
+
+        # print(table)
+        get_sortest_path_from_table(table,endWord,[endWord])
+        # print(res)
+        return res
 
 
         
@@ -83,11 +113,11 @@ def visualize(graph, label=False):
         
 
 if __name__ == '__main__':
-    beginWord = "hit"
-    endWord = "cog"
-    wordList = ["hot","dot","dog","lot","log","cog"]
+    beginWord = "hot"
+    endWord = "dog"
+    wordList = ["hot","dog"] 
     r = Solution().findLadders(beginWord,endWord,wordList)
     # visualize(r)
     # for i in r:
-    #     print(i)
+    print(r)
 
