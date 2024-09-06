@@ -3,7 +3,7 @@ import random
 
 # find the sortest path from a source node to all other nodes in a graph 
 
-def dijkstra_algorithms(graph,start):
+def dijkstra_algorithms_with_simple_array(graph,start):
     visited = [False]*len(graph)
     table = [[None,None]]*len(graph)
     table[start] = [0,None]
@@ -37,7 +37,52 @@ def dijkstra_algorithms(graph,start):
         
     return table 
             
-    
+import heapq
+
+# This class represents a directed graph using
+# adjacency list representation
+class Graph:
+    def __init__(self, V):
+        self.V = V  # No. of vertices
+        self.adj = [[] for _ in range(V)]  # In a weighted graph, store vertex and weight pair for every edge
+
+    # Function to add an edge to the graph
+    def add_edge(self, u, v, w):
+        self.adj[u].append((v, w))
+        self.adj[v].append((u, w))
+
+    # Prints shortest paths from src to all other vertices
+    def shortest_path(self, src):
+        # Create a priority queue to store vertices that
+        # are being preprocessed.
+        pq = [(0, src)]  # The first element of the tuple is the distance, and the second is the vertex label
+
+        # Create a list for distances and initialize all
+        # distances as infinite (INF)
+        dist = [float('inf')] * self.V
+        dist[src] = 0
+
+        # Looping until the priority queue becomes empty
+        while pq:
+            # The first element in the tuple is the minimum distance vertex
+            # Extract it from the priority queue
+            current_dist, u = heapq.heappop(pq)
+
+            # Iterate over all adjacent vertices of a vertex
+            for v, weight in self.adj[u]:
+                # If there is a shorter path to v through u
+                if dist[v] > dist[u] + weight:
+                    # Update the distance of v
+                    dist[v] = dist[u] + weight
+                    heapq.heappush(pq, (dist[v], v))
+
+        # Print shortest distances
+        print("Vertex Distance from Source")
+        for i in range(self.V):
+            print(f"{i}\t\t{dist[i]}")
+
+
+
 import matplotlib.pyplot as plt
 
 def visualize_graph(graph):

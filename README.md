@@ -142,3 +142,18 @@ The Ubiquitous Binary Search |
     - Knapsack
 
 - Kruskal Algorithm
+
+## Sorting algorithms
+
+<table border="1">
+    <tr>
+        <td rowspan="2">Ô 1</td> <!-- Ô 1 chiếm 2 hàng -->
+        <td>Ô 2</td>
+        <td>Ô 3</td>
+        <td>Ô 4</td>
+    </tr>
+    <tr>
+        <td>Ô 5</td>
+        <td>Ô 6</td>
+    </tr>
+</table>
