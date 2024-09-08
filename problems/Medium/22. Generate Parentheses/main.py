@@ -1,4 +1,5 @@
 
+from typing import *
 class Solution:
     def generateParenthesis(self, n: int):
         if n==1:
@@ -24,20 +25,33 @@ class Solution:
                 break
         return results
 
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        # stack + backtracking 
+        results = []
 
-            
+        def backtracking(count=0,stack=""):
+            nonlocal results
+            # print('count-stack: ',count,stack)
+            if len(stack) == 2*n:
+                if count == 0:
+                    results.append(stack)
+                return
+            if count > n:
+                return
+            if count < 0:
+                return
+            for i in ['(',')']:
+                if i == '(':
+                    backtracking(count+1,stack + i)
+                else:
+                    backtracking(count-1,stack + i)
 
-
-
-
-
-            
-
-        
-
-
+        backtracking()
+                
+        return results
 
 if __name__ == '__main__':
     # pass
-    a = Solution().generateParenthesis(2)
+    a = Solution().generateParenthesis(3)
     print(a)
