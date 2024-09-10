@@ -7,18 +7,15 @@ class TreeNode:
         self.right = right
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        
-        stack = []
-        def dfs(node,level):
-            nonlocal stack
+        res = []
+        def traversal(node):
+            nonlocal res
             if node:
-                stack.append([node.val,level])
-                dfs(node.right, level + 1)
-                dfs(node.left,level -1)
-        dfs(root,0)
-        stack.sort(key=lambda x: x[1])
-        print('stack: ',stack)
-        # return stack[::-1]
+                traversal(node.left)
+                res.append(node.val)
+                traversal(node.right)
+        traversal(root)
+        return res
 
                 
 
