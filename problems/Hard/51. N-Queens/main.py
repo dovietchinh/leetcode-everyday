@@ -1,46 +1,35 @@
 from typing import List
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
-        results = set()
-        # count = 0
-        # check_valid_count = 0
-        def putQueen(queens,tail=[]):
-            # nonlocal count
-            # count += 1
-            if queens==0:
-                temp = tuple(sorted(tail, key=lambda k:k[0]))
-                results.add(temp)
+        # res = [['.'*n for _ in range(n)]]
+        def putQ(queens):
+            # print('queens: ',queens)
+            if len(queens) == n:
+                res = ['.'*n for _ in range(n)]
+                # print('res: ',res)
+                for i in range(n):
+                    
+                    res[i] = res[i][:queens[i]] + 'Q' + res[i][queens[i]+1:]
+                print(res)
+                return
+            invalid_sum = [z+queens[z] for z in range(len(queens))]
+            invalid_diff = [z-queens[z] for z in range(len(queens))]
+            # print('invalid_sum: ',invalid_sum)
+            # print('invalid_diff: ',invalid_diff)
+            for i in range(n):
+                if i in queens:
+                    continue
+                # if any(abs(i-j) == len(queens)-k for k,j in enumerate(queens)):
+                #     continue
+                if len(queens) + i in invalid_sum:
+                    continue 
+                if len(queens) - i in invalid_diff:
+                    continue
+                putQ(queens+[i])
+        putQ([])
                 
-            else:                
-                for x in range(n):
-                    for y in range(n):
-                        if check_valid(x,y,tail):
-                            putQueen(queens-1,[*tail,(x,y)])
-        def check_valid(x,y,tail):
-            # nonlocal check_valid_count
-            # check_valid_count += 1
-            for x_i,y_i in tail:
-                if x==x_i or y==y_i:
-                    return False
-                if (x_i + y_i) == (x+y):
-                    return False 
-                if (x_i - y_i) == (x-y):
-                    return False
-            return True
-        putQueen(n)
-        # print('count: ',count)
-        # print('check_valid_count: ',check_valid_count)
-        output = []
-        for r in results:
-            S = ['.'*n]*n
-            for x,y in r:
-                S[x] = S[x][:y] + 'Q' + S[x][y+1:]
-            output.append(S)
-        return output
-            
-        # return results
 
 if __name__ == '__main__':
-    r = Solution().solveNQueens(8)
-    for i in r:
-        print(i)
+    Solution().solveNQueens(8)
+    # for i in r:
+    #     print(i)
