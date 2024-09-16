@@ -23,7 +23,7 @@ class Solution:
                         left += 1
                         right -= 1
                     elif nums[mid] < nums[right]:
-                        right = mid - 1 
+                        right = mid 
                 elif nums[mid] < nums[left]:
                     right = mid 
         # print('left,mid,right: ', left,mid,right)
