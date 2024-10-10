@@ -17,31 +17,31 @@ class Solution:
         if size == 2:
             return max(0, new_prices[1] - new_prices[0])
         
-        peak_down,peak_up = [],[]
+        minimum_points,maximum_points = [],[]
         if new_prices[0] < new_prices[1]:
-            peak_down.append(0)
+            minimum_points.append(0)
         else:
-            peak_up.append(0)
+            maximum_points.append(0)
 
         for i in range(1, size-1):
             p_prev = new_prices[i-1]
             p = new_prices[i]
             p_next = new_prices[i+1]
             if p < p_prev and p < p_next:
-                peak_down.append(i)
+                minimum_points.append(i)
             if p > p_prev and p > p_next:
-                peak_up.append(i)
+                maximum_points.append(i)
         
         if new_prices[size-1] < new_prices[size-2]:
-            peak_down.append(size-1)
+            minimum_points.append(size-1)
         else:
-            peak_up.append(size-1)
+            maximum_points.append(size-1)
         
         i = 0
         j = 0 
-        while i < len(peak_down) and j < len(peak_up):
-            if peak_down[i] < peak_up[j]:
-                profit += new_prices[peak_up[j]] - new_prices[peak_down[i]]
+        while i < len(minimum_points) and j < len(maximum_points):
+            if minimum_points[i] < maximum_points[j]:
+                profit += new_prices[maximum_points[j]] - new_prices[minimum_points[i]]
                 i += 1
                 j += 1
             else:
