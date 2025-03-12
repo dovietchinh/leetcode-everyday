@@ -46,20 +46,44 @@ class Solution:
         return l
 
 
+class Solution:
+    def swapPairs(self,head):
+        pre = None 
+        cur = head 
+        nex = cur.next  if cur else None
 
+        while nex:
+            temp = nex.next
+            cur.next = temp
+            nex.next = cur 
+            if pre:
+                pre.next = nex
+            else:
+                head = nex
+            pre = cur 
+            cur = temp 
+            nex = cur.next if cur else None 
+        return head
 
 if __name__ == '__main__':
+    # a = ListNode(1,ListNode(2,ListNode(3,ListNode(4,ListNode(5,ListNode(6))))))
     a = ListNode(1)
     b = ListNode(2)
     c = ListNode(3)
     d = ListNode(4)
     e = ListNode(5)
-    # f = ListNode(6)
-    # a.next = b
-    # b.next = c 
-    # c.next = d
-    # d.next = e
-    # e.next = f
-    # print_list_node(a)
+    f = ListNode(6)
+    g = ListNode(7)
+    # h = ListNode(8)
+    a.next = b
+    b.next = c 
+    c.next = d
+    d.next = e
+    e.next = f
+    f.next = g
+    # g.next = h
+
+    print_list_node(a)
+    # print_list_node(r)
     r = Solution().swapPairs(None)
     print_list_node(r)

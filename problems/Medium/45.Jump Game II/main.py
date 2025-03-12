@@ -31,18 +31,32 @@ class Solution:
         return bfs(graph) 
         
 
-    def jump(self, nums: List[int]) -> int:
-        slow_pointer = 0
-        fast_pointer = 0
-        size = len(nums)
-        for i in range(size):
-            for j in range(nums[i]+1):
-                if i+j < size:
+    # def jump(self, nums: List[int]) -> int:
+    #     slow_pointer = 0
+    #     fast_pointer = 0
+    #     size = len(nums)
+    #     for i in range(size):
+    #         for j in range(nums[i]+1):
+    #             if i+j < size:
                     
-                
+    def jump(self,nums):
+        nearest = 0
+        farthest = nums[0]
+        jumps = 1
+        if len(nums) == 1:
+            return 0
+        while farthest < len(nums)-1:
+            jumps += 1
+            for i in range(nearest,farthest+1):
+                farthest = max(farthest,i+nums[i])
+                # if farthest >= len(nums)-1:
+                #     return jumps
+                nearest = i
+        return jumps
 
 
-        
+
+     
 
 
 

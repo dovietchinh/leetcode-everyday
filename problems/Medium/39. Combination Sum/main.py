@@ -29,8 +29,8 @@ class Solution:
         fn(candidates,max_rep_outer,target)
         return result_outer
         # print("result_outer: ",result_outer)
-
+                
 
 if __name__ == '__main__':
-    r = Solution().combinationSum([2,3,5],8)
-    # print(r)
+    r = Solution().combinationSum([2,3,6,7],7)
+    print(r)
