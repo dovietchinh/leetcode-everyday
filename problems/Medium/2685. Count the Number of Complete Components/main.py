@@ -47,7 +47,15 @@ if __name__ == '__main__':
     r = Solution().countCompleteComponents(n,edges)
     print('r: ',r)
 
-# BFS for each node in graph
-# each BFS go though all node in a subgraph 
-# if a subgraph is connected-components : 
-#   each node have m -1 edges
+"""
+Intuition:
+Completed-connected property: 
+        -  m vertices
+        -  each node in subgraph have m-1 connect
+
+Step-by-step:
+    1. BFS with a start node to go through all node in subgraph, add to global hash-map (a set).
+        if start node apper
+    2. Check if that subgraph is complete-connected 
+
+"""
