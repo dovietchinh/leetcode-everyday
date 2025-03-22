@@ -1,0 +1,46 @@
+x in data
+node:  cpivl
+cpivl not in data but in supplies
+node:  zpmcz
+zpmcz in data
+node:  h
+h in data
+node:  e
+e in data
+node:  fzjnm
+fzjnm in data
+node:  ju
+ju in data
+node:  q
+q in data
+node:  d
+d not in data but in supplies
+node:  hveml
+hveml not in data but in supplies
+node:  f
+f not in data but in supplies
+r: : []
+visited:  
+
+0 zpmcz
+1 d
+2 ju
+3 cpivl
+4 e
+5 h
+6 fzjnm
+7 hveml
+8 f
+9 q
+10 x
+
+data:  {
+    'ju': ['d'],
+    'fzjnm':['hveml', 'f', 'cpivl'],
+    'x': ['cpivl', 'zpmcz', 'h', 'e', 'fzjnm', 'ju'],
+    'e': ['cpivl', 'hveml', 'zpmcz', 'ju', 'h'],
+    'zpmcz': ['h', 'fzjnm', 'e', 'q', 'x'],
+    'h': ['d', 'hveml', 'cpivl', 'q', 'zpmcz', 'ju', 'e', 'x'],
+    'q': ['f', 'hveml', 'cpivl']}
+
+    ["f","hveml","cpivl","d"]
