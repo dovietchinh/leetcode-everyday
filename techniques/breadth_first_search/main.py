@@ -1,87 +1,104 @@
-# from collections import deque
+from collections import deque
+
+# ---------- BFS using Edge List ----------
+def bfs_edge_list(edges, start, num_vertices):
+    """
+    BFS implementation for a graph represented as an edge list.
+    edges: list of tuples (source, destination) representing directed edges.
+    start: starting vertex.
+    num_vertices: total number of vertices in the graph.
+    """
+    visited = [False] * num_vertices
+    order = []
+    queue = deque([start])
+    visited[start] = True
+
+    while queue:
+        current = queue.popleft()
+        order.append(current)
+        # For every edge, if the current vertex is the source, add the destination.
+        for u, v in edges:
+            if u == current and not visited[v]:
+                visited[v] = True
+                queue.append(v)
+    return order
+
+# ---------- BFS using Adjacency List ----------
+def bfs_adj_list(adj_list, start):
+    """
+    BFS implementation for a graph represented as an adjacency list.
+    adj_list: dictionary where each key is a vertex and the value is a list of neighboring vertices.
+    start: starting vertex.
+    """
+    visited = set()
+    order = []
+    queue = deque([start])
+    visited.add(start)
+
+    while queue:
+        current = queue.popleft()
+        order.append(current)
+        # Add all unvisited neighbors of the current vertex.
+        for neighbor in adj_list.get(current, []):
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+    return order
+
+# ---------- BFS using Adjacency Matrix ----------
+def bfs_adj_matrix(matrix, start):
+    """
+    BFS implementation for a graph represented as an adjacency matrix.
+    matrix: 2D list where matrix[i][j] is non-zero if there's an edge from i to j.
+    start: starting vertex.
+    """
+    n = len(matrix)
+    visited = [False] * n
+    order = []
+    queue = deque([start])
+    visited[start] = True
+
+    while queue:
+        current = queue.popleft()
+        order.append(current)
+        # Check every possible vertex as a neighbor.
+        for neighbor in range(n):
+            # If there is an edge (non-zero weight) and neighbor is not visited.
+            if matrix[current][neighbor] != 0 and not visited[neighbor]:
+                visited[neighbor] = True
+                queue.append(neighbor)
+    return order
+
+# ---------- Example Graphs ----------
+
+# 1. Edge List (Directed Graph)
+# Each tuple is in the format (source, destination)
+edges = [(0, 1), (0, 2), (1, 2), (2, 0), (2, 3), (3, 3)]
+num_vertices = 4
+print("BFS using Edge List:", bfs_edge_list(edges, start=2, num_vertices=num_vertices))
+
+# 2. Adjacency List
+# Using a dictionary for clarity.
+adj_list = {
+    0: [1, 2],
+    1: [2],
+    2: [0, 3],
+    3: [3]
+}
+print("BFS using Adjacency List:", bfs_adj_list(adj_list, start=2))
+
+# 3. Adjacency Matrix
+# 0 represents no edge, non-zero (here 1) represents an edge.
+# This matrix corresponds to the same graph as above.
+matrix = [
+    [0, 1, 1, 0],  # Vertex 0 has edges to 1 and 2
+    [0, 0, 1, 0],  # Vertex 1 has an edge to 2
+    [1, 0, 0, 1],  # Vertex 2 has edges to 0 and 3
+    [0, 0, 0, 1]   # Vertex 3 has an edge to itself (self-loop)
+]
+print("BFS using Adjacency Matrix:", bfs_adj_matrix(matrix, start=2))
 
 
-# import matplotlib.pyplot as plt
-# import networkx as nx
-
-# # BFS from given source s
-# def bfs(adj, s, visited):
-  
-#     # Create a queue for BFS
-#     q = deque()
-
-#     # Mark the source node as visited and enqueue it
-#     visited[s] = True
-#     q.append(s)
-
-#     # Iterate over the queue
-#     while q:
-      
-#         # Dequeue a vertex from queue and print it
-#         curr = q.popleft()
-#         print(curr, end=" ")
-
-#         # Get all adjacent vertices of the dequeued 
-#         # vertex. If an adjacent has not been visited, 
-#         # mark it visited and enqueue it
-#         for x in adj[curr]:
-#             if not visited[x]:
-#                 visited[x] = True
-#                 q.append(x)
-
-# # Function to add an edge to the graph
-# def add_edge(adj, u, v):
-#     adj[u].append(v)
-#     adj[v].append(u)
-
-# # Example usage
-# if __name__ == "__main__":
-  
-#     # Number of vertices in the graph
-#     V = 5
-
-#     # Adjacency list representation of the graph
-#     adj = [[] for _ in range(V)]
-
-#     graph = {
-#         'A': {'B': 4, 'C': 2},
-#         'B': {'A': 4, 'C': 5, 'D': 10},
-#         'C': {'A': 2, 'B': 5, 'D': 3, 'E': 4},
-#         'D': {'B': 10, 'C': 3, 'E': 1, 'F': 5},
-#         'E': {'C': 4, 'D': 1, 'F': 2},
-#         'F': {'D': 5, 'E': 2, 'G': 3},
-#         'G': {'F': 3, 'H': 6},
-#         'H': {'G': 6}
-#     }
-#     adj = [[] for _ in range(len(adj))]
-#     # Add edges to the graph
-#     add_edge(adj, 0, 1)
-#     add_edge(adj, 0, 2)
-#     add_edge(adj, 1, 3)
-#     add_edge(adj, 1, 4)
-#     add_edge(adj, 2, 4)
-
-#     G = nx.DiGraph()
-#     for node, edges in graph.items():
-#         for neighbor, weight in edges.items():
-#             G.add_edge(node, neighbor, weight=1)
-#             print('node, neighbor: ',node, neighbor)
-#             add_edge(adj, node, neighbor)    
-#     pos = nx.spring_layout(G)
-#     edge_labels = nx.get_edge_attributes(G, 'weight')
-#     nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=2000, font_size=16, font_weight='bold', arrows=True)
-#     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color='red', font_size=12)
-
-# # Show the plot
-#     plt.title("Graph Visualization with Dijkstra's Algorithm")
-#     plt.axis('off')
-#     plt.show()
-#     # Mark all the vertices as not visited
-#     visited = [False] * V
-
-#     # Perform BFS traversal starting from vertex 0
-#     print("BFS starting from 0: ")
-#     bfs(adj, 0, visited)
 
 
 def bfs(graph, start):

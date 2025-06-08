@@ -4,6 +4,27 @@ coding everyday is a good habit for programmer.
 
 I consider letcode is my relax-place instead of playing video or wasting alot of time with social media.
 
+## Notice
+
+Always check the edge case in leetcode before dive into the problems.
+
+- handle edge case
+    - start with basic case: 
+        - What if input null
+        - What if input blank
+        - What if input size is odd/even
+        - What if input is an array of numbers 
+        - What if duplicates occur in inputs
+        - What if input contain special characters
+
+- Solve problmes:
+    - Always start thinking of brute-force and time complexity of
+    - Check the type of problems: Two pointer, bfs, dfs,..vv..vv
+- calculate the Time-complexity and memory-complexity of your solutions
+- Review and try another beter solution 
+
+
+
 ## Letcode
 
 ## TimeComplexity
